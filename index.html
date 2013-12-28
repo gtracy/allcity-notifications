@@ -1,0 +1,50 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+  <head>
+    <meta name="description" content="A telephone application transcribes voice messages in real time.">
+    <meta name="keywords" content"Twilio, transcription, voice, greg tracy, greg tracy, google app engine, cloud computing, telephone, telephony">
+    <title>Twilio Transcription Test</title>
+  </head>
+
+<body>  
+
+<div id="page-container">
+ <div id="header">
+ {{ greeting }}<br>
+ <p><center><img src="img/header.png" alt="smsmybus logo"></center>
+ </div>
+ <div id="description">
+  <center>The page displays the results of <a href=http://www.twilio.com>Twilio</a> voice transcription. 
+  Each of these transcriptions used the same voice reading, "200 East Main St. San Francisco, CA"</center>
+  <hr>
+ </div>
+
+ <hr>
+ 
+ <div id="spacer"> </div>
+ There have been a total of {{ total }} requests by {{ uniques }} callers
+ <hr></hr>
+ <table id="phonelog">
+  <thead><tr>
+   <th>Phone</th>
+   <th>Request</th>
+   <th>Outbound SMS</th>
+   <th>Date</th>
+  </tr></thead>
+ {% for e in events %}
+  <tr>
+   <td>{{ e.phone }}</td>
+   <td>{{ e.body }}</td>
+   <td>{{ e.outboundSMS }}</td>
+   <td>{{ e.date }}</td>
+  </tr>
+ {% endfor %}
+ </table>
+ 
+</div>
+  </body>
+</html>
+
